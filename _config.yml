@@ -16,7 +16,7 @@
 title: Malware Unicorn
 email: amanda@secured.org
 description: > # this means to ignore newlines until "baseurl:"
-  twitter: <a href="https://twitter.com/malwareunicorn">@malwareunicorn</a><br>Company: <a href="https://www.endgame.com/">Endgame, Inc.</a><br><img src="https://securedorg.github.io/images/deathunicorn.png" alt="MU">
+  twitter: <a href="https://twitter.com/malwareunicorn">@malwareunicorn</a><br>Company: <a href="https://www.endgame.com/">Endgame, Inc.</a><br><img src="https://nobarxtx.github.io/images/deathunicorn.png" alt="MU">
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
