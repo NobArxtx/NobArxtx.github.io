@@ -4,7 +4,7 @@ permalink: /content/
 title: Content
 ---
 
-[Go Back to All WorkShops](https://securedorg.github.io/)
+[Go Back to All WorkShops](https://nobarxtx.github.io/)
 
 # Presentations
 
@@ -12,19 +12,19 @@ title: Content
 
 *WiCys Conference 2017, DEF CON (Packet Hacking Village) 2017*
 
-**.Net Hijacking to Defend Powershell [slides](https://securedorg.github.io/docs/Cansecwest2017_NETHijackingPowerShell.pdf)**
+**.Net Hijacking to Defend Powershell [slides](https://nobarxtx.github.io/docs/Cansecwest2017_NETHijackingPowerShell.pdf)**
 
 *BSides 2017, CanSecWest 2017*
 
-**Instegogram: Leveraging Instagram for C2 via Image Steganography [slides](https://securedorg.github.io/docs/InstegogramDefCon2016_H_A_Dredatcted.pdf)**
+**Instegogram: Leveraging Instagram for C2 via Image Steganography [slides](https://nobarxtx.github.io/docs/InstegogramDefCon2016_H_A_Dredatcted.pdf)**
 
 *DefCon (Crypto Village) 2016*
 
-**OSX Malware: Plists, Shell Scripts, and Objective-C, Oh-My! [slides](https://securedorg.github.io/docs/MIRcon_2014_RD_Track_Plists_Shell_Scripts_Object-C.pdf)**
+**OSX Malware: Plists, Shell Scripts, and Objective-C, Oh-My! [slides](https://nobarxtx.github.io/docs/MIRcon_2014_RD_Track_Plists_Shell_Scripts_Object-C.pdf)**
 
 *Mircon 2014*
 
-**DLL Side-Loading: A Thorn in the Side of the Anti-Virus (AV) Industry [slides](https://securedorg.github.io/docs/hta-w04a-dll-side-loading-a-thorn-in-the-side-of-the-anti-virus-_av_-industry.pdf)**
+**DLL Side-Loading: A Thorn in the Side of the Anti-Virus (AV) Industry [slides](https://nobarxtx.github.io/docs/hta-w04a-dll-side-loading-a-thorn-in-the-side-of-the-anti-virus-_av_-industry.pdf)**
 
 *RSA Conference 2014*
 
@@ -35,11 +35,11 @@ title: Content
 
 # Whitepapers
 
-**[Malware Dynamic Behavior Classification: SVM-HMM applied to Malware API Sequencing](https://securedorg.github.io/docs/MDBC_API_Sequencing.pdf)**
+**[Malware Dynamic Behavior Classification: SVM-HMM applied to Malware API Sequencing](https://nobarxtx.github.io/docs/MDBC_API_Sequencing.pdf)**
 
 *Johns Hopkins University*
 
-**[Dll Side-Loading: A Thorn in the Side of  the Anti-Virus Industry](https://securedorg.github.io/docs/rpt-dll-sideloading.pdf)**
+**[Dll Side-Loading: A Thorn in the Side of  the Anti-Virus Industry](https://nobarxtx.github.io/docs/rpt-dll-sideloading.pdf)**
 
 *FireEye*
 

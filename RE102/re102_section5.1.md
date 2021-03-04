@@ -3,7 +3,7 @@ layout: default
 permalink: /RE102/section5.1/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 5.1: Debugging #
 
@@ -26,16 +26,16 @@ At this point you should have recorded the following functions along with their 
 
 Place a breakpoint with x32dbg using the command line. Example: `bp 00401D9B`
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_breakpoint.png "Section5.1_breakpoint")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_breakpoint.png "Section5.1_breakpoint")
 
 Now press **F9** to run the program to breakpoints until you reach `004019E4`.
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_4019E4.png "Section5.1_4019E4")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_4019E4.png "Section5.1_4019E4")
 
 Scroll down to check out offset `00405272`. Looks like the `[esp+1C]` is using Path Windows APIs to check the strings against sample, sandbox, and virus. Since your exe name is and path does not contain these words, it will not take the jump. Thus, no need  to change the flags or patch the instruction. Keep pressing **F8** (to step over the instruction) until you reach the offset `00405277`.
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE102/images/Section5.1_405272.png "Section5.1_405272")](https://securedorg.github.io/RE102/images/Section5.1_405272.png)
+[![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_405272.png "Section5.1_405272")](https://nobarxtx.github.io/RE102/images/Section5.1_405272.png)
 
 **Congrats!** You bypassed the first evasion technique deployed by this malware . Now that you know what these API calls are, you should be renaming the subroutines in your IDA with appropriate labels.
 
@@ -65,13 +65,13 @@ HRSRC WINAPI FindResource(
 );
 ```
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_LoadResource.png "Section5.1_LoadResource")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_LoadResource.png "Section5.1_LoadResource")
 
 Close x32dbg while you edit the decrypted_shellcode.exe.
 
 Open up the original exe in CFF explorer and look for the resource 1000. Next export this resource under Resource Editor, right-click and Save Resource (RAW). Take a moment and look at the data of this resource. Hint: looks like more junk data. 
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_resource.png "Section5.1_resource")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_resource.png "Section5.1_resource")
 
 Once you exported the resource 1000, open the decrypted_shellcode.exe with CFF explorer. In the Resource Editor add Add Custom Resource (Raw) with the id of 1000. It should mirror the original exe. Afterwards open decrypted_shellcode.exe with x32dbg again. Navigate back to function `sub_40487D` or just set a breakpoint at `0040487D` and run until that function.
 
@@ -82,18 +82,18 @@ Once you exported the resource 1000, open the decrypted_shellcode.exe with CFF e
 Keep stepping until you reach `0040416F` where you will see that the resource is being placed into a new memory allocation. Remember that VirtualAlloc is typically followed by a ‘mov instruction’. After the VirtualAlloc function is returned make sure you note the address of the newly allocated memory. As before, this function will put the address of the allocated memory in the `eax` register (the returned value).
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE102/images/Section5.1_savingresource.png "Section5.1_savingresource")](https://securedorg.github.io/RE102/images/Section5.1_savingresource.png)
+[![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_savingresource.png "Section5.1_savingresource")](https://nobarxtx.github.io/RE102/images/Section5.1_savingresource.png)
 
 Once you are done stepping through function `sub_40487D` step until you reach `loc_4014C2`.
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_allocate318.png "Section5.1_allocate318")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_allocate318.png "Section5.1_allocate318")
 
 The size 0x318 is a common theme for the next couple of function calls. This is where you will see another combo  of VirtualAlloc and `mov`.  It will store the first 0x318 bytes into the newly allocated memory.
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE102/images/Section5.1_Virtualloc318.png "Section5.1_Virtualloc318")](https://securedorg.github.io/RE102/images/Section5.1_Virtualloc318.png)
+[![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_Virtualloc318.png "Section5.1_Virtualloc318")](https://nobarxtx.github.io/RE102/images/Section5.1_Virtualloc318.png)
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_move_decrypt.png "Section5.1_move_decrypt")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_move_decrypt.png "Section5.1_move_decrypt")
 
 Does function `sub_403BC2` look familiar? Here is the breakdown:
 
@@ -106,7 +106,7 @@ Arg_3 0x20 size
 
 Why offset 0x20? Here is the dump of the CopiedData:
 
-![alt text](https://securedorg.github.io/RE102/images/Section5.1_20bytesof318.png "Section5.1_20bytesof318")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5.1_20bytesof318.png "Section5.1_20bytesof318")
 
 At this point it’s too early to guess what this data does.
 
@@ -127,4 +127,4 @@ As you might have guessed, it looks like the malware is using RC4 again, but you
 
 Step through until you reach `loc_401CCA` and continue to the next page.
 
-[Section 5 <- Back](https://securedorg.github.io/RE102/section5) | [Next -> Section 5.2](https://securedorg.github.io/RE102/section5.2)
+[Section 5 <- Back](https://nobarxtx.github.io/RE102/section5) | [Next -> Section 5.2](https://nobarxtx.github.io/RE102/section5.2)

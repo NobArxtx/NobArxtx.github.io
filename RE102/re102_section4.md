@@ -3,11 +3,11 @@ layout: default
 permalink: /RE102/section4/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 4: Identifying Encryption #
 
-![alt text](https://securedorg.github.io/RE102/images/Section4_intro.gif "intro")
+![alt text](https://nobarxtx.github.io/RE102/images/Section4_intro.gif "intro")
 
 This section will focus on generically recognizing encryption routines. In the previous section, you left off at `sub_45B5AC`. As you might be able to guess, this malware is using an encryption algorithm here. The give aways are:
 
@@ -28,7 +28,7 @@ To decrypt data that is encrypted the malware needs:
 
 Let’s take a look at the arguments for `sub_45B5AC`. Remember in section 1.3 of RE 101, it explained that assembly function calls have their arguments pushed onto the stack in reverse order. To learn about the reason behind this you can check out this [article](https://en.wikipedia.org/wiki/Calling_convention). In the image below, you can see it’s pushing 4 times and saving 3 objects in 3 different registers (ecx, edx, eax).
 
-![alt text](https://securedorg.github.io/RE102/images/Section4_functionargs.png "Section4_functionargs")
+![alt text](https://nobarxtx.github.io/RE102/images/Section4_functionargs.png "Section4_functionargs")
 
 ### Delphi calling convention ###
 
@@ -73,11 +73,11 @@ Now all you need to know is what 0x100 and 0xBEE2 represent, and you might not k
 
 Cryptographic algorithms are often grouped into two major categories: symmetric and asymmetric. Most of these algorithms in order to perform some sort of shuffling to the plaintext need to loop over each or blocks of characters. Let’s take a look at a structure used in many symmetric block cipher algorithms:
 
-![alt text](https://securedorg.github.io/RE102/images/Section4_cipher.png "Section4_cipher")
+![alt text](https://nobarxtx.github.io/RE102/images/Section4_cipher.png "Section4_cipher")
 
 For every subkey K in this algorithm, it has to loop through each K to XOR and Swap. In the disassembly you will be able to see this looping, incrementing, and swapping action going on. Now let’s look at `sub_45B5AC`.
 
-![alt text](https://securedorg.github.io/RE102/images/Section4_looping.png "Section4_looping")
+![alt text](https://nobarxtx.github.io/RE102/images/Section4_looping.png "Section4_looping")
 
 There are actually multiple loops happening in this function. Section 4.1 will go over how identifying this algorithm. This section focuses on just recognizing usage of crypto.
 
@@ -99,4 +99,4 @@ In the beginning of this section, it mentioned you need to be suspicious of NOP 
 
 The next subsection will go over identifying which cryptographic algorithm this malware is using.
 
-[Section 3.2 <- Back](https://securedorg.github.io/RE102/section3.2) | [Next -> Section 4.1](https://securedorg.github.io/RE102/section4.1)
+[Section 3.2 <- Back](https://nobarxtx.github.io/RE102/section3.2) | [Next -> Section 4.1](https://nobarxtx.github.io/RE102/section4.1)

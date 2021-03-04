@@ -4,7 +4,7 @@ permalink: /flareon4/challenge4/
 title: Challenge 4 notepad.exe
 ---
 
-[Go Back to All Challenges](https://securedorg.github.io/flareon4)
+[Go Back to All Challenges](https://nobarxtx.github.io/flareon4)
 
 # Challenge 4: notepad.exe #
 
@@ -14,11 +14,11 @@ This challenge was really fun. Trying to disguise the binary as notepad.exe howe
 
 The first part of the start function is the biggest hint. It is looking for the folder **%USERPROFILE%\flareon2016challenge**. This means you will need the binaries from the flareon 2016 challenges.
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_hint.png "hint")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_hint.png "hint")
 
 ## Structure ##
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_diagram.png "ch4 diagram")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_diagram.png "ch4 diagram")
 
 The binary is actually performing typical malware-like behaviors that I see all the time:
 
@@ -32,17 +32,17 @@ Your best bet is to start labeling the API calls in IDA so you know what is goin
 
 The next hint, is the message box that appears when you have the right exe files in the right order. 
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_messagebox.png "messagebox")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_messagebox.png "messagebox")
 
 In function offset `01014E20`, CreateFileMappingA and MapViewOfFile are used to place each file into memory in order to read a specific offset of the PE header.
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_header.png "header")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_header.png "header")
 
 Each header for the a few of the 2016 challenges are processed to contruct the key.bin file. This key is used to decrypt a hardcoded string. Function offset `010146C0` is where all of this takes place.
 
 Hardcoded encrypted answer:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_answer.png "answer")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_answer.png "answer")
 
 Here is the hex for the screenshot above:
 
@@ -52,7 +52,7 @@ Here is the hex for the screenshot above:
 
 As you can see there is a branch for each challenge:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_headercheck.png "header check")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_headercheck.png "header check")
 
 These are the timestamps of the challenges:
 ```
@@ -70,7 +70,7 @@ Each time notepad.exe is run it will check the timestamp value of itself against
 4. modify 57D2B0F8 to 49180192
 5. modify 49180192 to 579E9100
 
-![alt text](https://securedorg.github.io/flareon4/images/ch4_cff.png "CFF Explorer")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch4_cff.png "CFF Explorer")
 
 Each time you run notepad.exe it will write a portion of the key to the key.bin file. The key.bin file should look like the following
 
@@ -96,4 +96,4 @@ for i in range(len(string)):
 print answer
 ```
 
-[Challenge 3 <- Back](https://securedorg.github.io/flareon4/challenge3) | [Next -> Challenge 5](https://securedorg.github.io/flareon4/challenge5)
+[Challenge 3 <- Back](https://nobarxtx.github.io/flareon4/challenge3) | [Next -> Challenge 5](https://nobarxtx.github.io/flareon4/challenge5)

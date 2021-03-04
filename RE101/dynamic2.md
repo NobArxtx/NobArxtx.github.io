@@ -3,14 +3,14 @@ layout: default
 permalink: /RE101/section6.1/
 title: Dynamic Analysis
 ---
-[Go Back to Reverse Engineering Malware 101](https://securedorg.github.io/RE101/)
+[Go Back to Reverse Engineering Malware 101](https://nobarxtx.github.io/RE101/)
 
 # Section 6: Finale #
 
 Congrats, you made it through the workshop. All of your notes and debugging should have gotten you to come up with a similar control flow like the diagram and report below.
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE101/images/Diagram.png "diagram")](https://securedorg.github.io/RE101/images/Diagram.png)
+[![alt text](https://nobarxtx.github.io/RE101/images/Diagram.png "diagram")](https://nobarxtx.github.io/RE101/images/Diagram.png)
 
 
 ## Simple Report
@@ -93,4 +93,4 @@ Processes Created dope.exe
 
 12) Shellexecute to open icon.gif
 
-[Section 6 <- Back](https://securedorg.github.io/RE101/section6)
+[Section 6 <- Back](https://nobarxtx.github.io/RE101/section6)

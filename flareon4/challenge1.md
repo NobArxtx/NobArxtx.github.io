@@ -4,7 +4,7 @@ permalink: /flareon4/challenge1/
 title: Challenge 1 login.html
 ---
 
-[Go Back to All Challenges](https://securedorg.github.io/flareon4)
+[Go Back to All Challenges](https://nobarxtx.github.io/flareon4)
 
 # Challenge 1: login.html #
 
@@ -47,4 +47,4 @@ print codecs.encode('PyvragFvqrYbtvafNerRnfl@syner-ba.pbz', 'rot_13')
 It's also good to note that all of flare-on challenges end in **@flare-on.com** this makes it easy to help you guess the output.
 
 
-[Next -> Challenge 2](https://securedorg.github.io/flareon4/challenge2)
+[Next -> Challenge 2](https://nobarxtx.github.io/flareon4/challenge2)

@@ -3,7 +3,7 @@ layout: default
 permalink: /RE101/section1.2/
 title: Fundamentals
 ---
-[Go Back to Reverse Engineering Malware 101](https://securedorg.github.io/RE101/)
+[Go Back to Reverse Engineering Malware 101](https://nobarxtx.github.io/RE101/)
 
 # Section 1.2: Fundamentals #
 
@@ -11,7 +11,7 @@ title: Fundamentals
 
 Typical windows programs are in the Portable Executable (PE) Format. It’s portable because it contains information, resources, and references to dynamic-linked libraries (DLL) that allows windows to load and execute the machine code. 
 
-![alt text](https://securedorg.github.io/RE101/images/Cprogram.gif "C Program")
+![alt text](https://nobarxtx.github.io/RE101/images/Cprogram.gif "C Program")
 
 ---
 
@@ -28,7 +28,7 @@ In this workshop we will be focusing on user-mode applications.
 [1]: https://msdn.microsoft.com/en-us/windows/hardware/drivers/gettingstarted/user-mode-and-kernel-mode?f=255&MSPPError=-2147217396
 
 This diagram shows the relationship of application components for user-mode and kernel-mode.
-![alt text](https://securedorg.github.io/RE101/images/WindowsArch.png "Windows Architecture")
+![alt text](https://nobarxtx.github.io/RE101/images/WindowsArch.png "Windows Architecture")
 
 --- 
 
@@ -43,12 +43,12 @@ The executable code has designated regions that require a different memory prote
 This diagram shows how this header is broken up.
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE101/images/PE32.png "PE 32 Header")](https://securedorg.github.io/RE101/images/PE32.png)
+[![alt text](https://nobarxtx.github.io/RE101/images/PE32.png "PE 32 Header")](https://nobarxtx.github.io/RE101/images/PE32.png)
 
 Here is a hexcode dump of a PE header we will be working with.
 
 *Click to Enlarge*
-[![alt text](https://securedorg.github.io/RE101/images/PEHeader.gif "PE 32 Header Animated")](https://securedorg.github.io/RE101/images/PEHeader.gif)
+[![alt text](https://nobarxtx.github.io/RE101/images/PEHeader.gif "PE 32 Header Animated")](https://nobarxtx.github.io/RE101/images/PEHeader.gif)
 
 ---
 
@@ -67,7 +67,7 @@ Here is a hexcode dump of a PE header we will be working with.
 [5]: https://en.wikipedia.org/wiki/Process_Environment_Block
 
 This diagram illustrates how the PE is placed into memory.
-![alt text](https://securedorg.github.io/RE101/images/Memory.png "PE Memory Layout")
+![alt text](https://nobarxtx.github.io/RE101/images/Memory.png "PE Memory Layout")
 
 --- 
 
@@ -77,6 +77,6 @@ This diagram illustrates how the PE is placed into memory.
 - **EBP** - Base Pointer is the register that used to store the references in the stack frame
 
 This diagram represents a typical stack frame.
-![alt text](https://securedorg.github.io/RE101/images/TheStackFrame.png "Stack Frame")
+![alt text](https://nobarxtx.github.io/RE101/images/TheStackFrame.png "Stack Frame")
 
-[Environment Setup <- Back](https://securedorg.github.io/RE101/section1) | [Next -> x86 Assembly](https://securedorg.github.io/RE101/section1.3)
+[Environment Setup <- Back](https://nobarxtx.github.io/RE101/section1) | [Next -> x86 Assembly](https://nobarxtx.github.io/RE101/section1.3)

@@ -3,7 +3,7 @@ layout: default
 permalink: /RE102/section3.2/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 3.2: Travel Directions #
 
@@ -38,4 +38,4 @@ title: Setup
 
 Let’s save `sub_45B5AC` for the next section.
 
-[Section 3.1 <- Back](https://securedorg.github.io/RE102/section3.1) | [Next -> Section 4](https://securedorg.github.io/RE102/section4)
+[Section 3.1 <- Back](https://nobarxtx.github.io/RE102/section3.1) | [Next -> Section 4](https://nobarxtx.github.io/RE102/section4)

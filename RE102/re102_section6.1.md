@@ -3,11 +3,11 @@ layout: default
 permalink: /RE102/section6.1/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 6.1: The Unpacking Script #
 
-Here is the full unpacking script. Extract the raw resource 1000 as a binary file as the first argument. It will output the exe as decrypted_payload.exe. You can also find this script here: [re102_unpacker.py](https://github.com/securedorg/securedorg.github.io/blob/master/RE102/%5Csecuredorg.github.io/RE102/re102_unpacker.py)
+Here is the full unpacking script. Extract the raw resource 1000 as a binary file as the first argument. It will output the exe as decrypted_payload.exe. You can also find this script here: [re102_unpacker.py](https://github.com/securedorg/nobarxtx.github.io/blob/master/RE102/%5Cnobarxtx.github.io/RE102/re102_unpacker.py)
 
 ```
 import os
@@ -133,4 +133,4 @@ with open(sys.argv[1], 'rb') as encrypted_file:
         out.close()
 ```
 
-[Section 6 <- Back](https://securedorg.github.io/RE102/section6) | [Next -> Extra Fun](https://securedorg.github.io/RE102/section7)
+[Section 6 <- Back](https://nobarxtx.github.io/RE102/section6) | [Next -> Extra Fun](https://nobarxtx.github.io/RE102/section7)

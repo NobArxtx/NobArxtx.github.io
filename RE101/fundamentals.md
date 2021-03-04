@@ -3,7 +3,7 @@ layout: default
 permalink: /RE101/section1/
 title: Fundamentals
 ---
-[Go Back to Reverse Engineering Malware 101](https://securedorg.github.io/RE101/)
+[Go Back to Reverse Engineering Malware 101](https://nobarxtx.github.io/RE101/)
 
 # Section 1: Fundamentals #
 
@@ -17,7 +17,7 @@ For windows and osx, follow the instructions in the install binary.
 
 | Windows | Mac OSX | Linux |
 | --- | --- | --- |
-| [![alt text](https://securedorg.github.io/RE101/images/VBwin.png "Windows Virualbox")](http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1.14-112924-Win.exe) | [![alt text](https://securedorg.github.io/RE101/images/VBmac.png "OSX Virtualbox")](http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1.14-112924-OSX.dmg) | [![alt text](https://securedorg.github.io/RE101/images/Vblinux.png "Linux Virtualbox")](https://www.virtualbox.org/wiki/Linux_Downloads) |
+| [![alt text](https://nobarxtx.github.io/RE101/images/VBwin.png "Windows Virualbox")](http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1.14-112924-Win.exe) | [![alt text](https://nobarxtx.github.io/RE101/images/VBmac.png "OSX Virtualbox")](http://download.virtualbox.org/virtualbox/5.1.14/VirtualBox-5.1.14-112924-OSX.dmg) | [![alt text](https://nobarxtx.github.io/RE101/images/Vblinux.png "Linux Virtualbox")](https://www.virtualbox.org/wiki/Linux_Downloads) |
 
 ### Download Victim and Sniffer VMs ###
 
@@ -70,14 +70,14 @@ Please use the utility [7zip](http://www.7-zip.org/download.html). Unzip the fil
   * Open terminal and run: `ps -ef | grep inetsim`
   * If no output, run: `/etc/init.d/inetsim start`
   * Run the ps command again to confirm it's running.
-  * Expected output: ![alt text](https://securedorg.github.io/RE101/images/VerifyInetsim.png "ps output")
+  * Expected output: ![alt text](https://nobarxtx.github.io/RE101/images/VerifyInetsim.png "ps output")
 7. Victim VM: test connection to Sniffer VM
   * In the search bar, type `cmd.exe` to open terminal
   * Run command: `ping 192.168.0.1`
-  * Expected output: ![alt text](https://securedorg.github.io/RE101/images/PingGateway.png "Ping Output")
+  * Expected output: ![alt text](https://nobarxtx.github.io/RE101/images/PingGateway.png "Ping Output")
 8. Sniffer VM: Devices->Shared Folders->Shared Folders Settings
   * On your Host, create a folder called `sniffershare`
   * In virtual box select Add New Shared Folder icon and navigate to the folder you just created (sniffershare)
   * In Sniffer VM, open the terminal and run command:`mkdir ~/host; sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) sniffershare ~/host`
 
-[Intro <- Back](https://securedorg.github.io/RE101/intro) | [Next -> Anatomy of PE](https://securedorg.github.io/RE101/section1.2)
+[Intro <- Back](https://nobarxtx.github.io/RE101/intro) | [Next -> Anatomy of PE](https://nobarxtx.github.io/RE101/section1.2)

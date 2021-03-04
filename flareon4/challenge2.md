@@ -4,7 +4,7 @@ permalink: /flareon4/challenge2/
 title: Challenge 2 IgniteMe.exe
 ---
 
-[Go Back to All Challenges](https://securedorg.github.io/flareon4)
+[Go Back to All Challenges](https://nobarxtx.github.io/flareon4)
 
 # Challenge 2: IgniteMe.exe #
 
@@ -33,7 +33,7 @@ Alright, the **MZ** header is a good sign that this is an actual exe.
 ```
 
 Output
-![alt text](https://securedorg.github.io/flareon4/images/ch1_run.png "run it")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch1_run.png "run it")
 
 
 ## Assumptions ##
@@ -46,13 +46,13 @@ Output
 
 ### Find where the input is stored ###
 
-![alt text](https://securedorg.github.io/flareon4/images/input.png "input")
+![alt text](https://nobarxtx.github.io/flareon4/images/input.png "input")
 
 Your best bet is looking at the function call right after the **WriteFile** API call. In function offset `4010F0`, you see the call for **ReadFile** which will read the input from the console. It will then store the input at offset `403078`. Here is the instruction that stores one byte at a time (cl is the first byte of register ecx):
 
 ```mov byte_403078[eax], cl```
 
-![alt text](https://securedorg.github.io/flareon4/images/registers.png "registers")
+![alt text](https://nobarxtx.github.io/flareon4/images/registers.png "registers")
 
 ### Find where the input is used ###
 
@@ -61,7 +61,7 @@ If you remember from my RE101 and RE102 workshops, your best bet is to look for 
 2. function at offset 401000
 
 In function `401050` you can see where the input is processed through an xor loop. The register **eax** is the input and **ecx** is the key. The key is hard coded somewhere.
-![alt text](https://securedorg.github.io/flareon4/images/xorloop.png "xorloop")
+![alt text](https://nobarxtx.github.io/flareon4/images/xorloop.png "xorloop")
 
 
 In function 401000, is a hardcoded value `80070057`. This simple function converts the key to `00700004`. The following reads: xor the first 2 bytes of value 80070057 with itself, rotate left by 4, and shift right by 1 bit.
@@ -100,6 +100,6 @@ for i in reversed_bytes:
 print answer[::-1]
 ```
 
-[Challenge 1 <- Back](https://securedorg.github.io/flareon4/challenge1) | [Next -> Challenge 3](https://securedorg.github.io/flareon4/challenge3)
+[Challenge 1 <- Back](https://nobarxtx.github.io/flareon4/challenge1) | [Next -> Challenge 3](https://nobarxtx.github.io/flareon4/challenge3)
 
 

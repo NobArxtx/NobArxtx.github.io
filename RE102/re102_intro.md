@@ -3,11 +3,11 @@ layout: default
 permalink: /RE102/intro/
 title: Intro
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Introduction #
 
-![alt text](https://securedorg.github.io/RE102/images/geometricintro.gif "geometricintro")
+![alt text](https://nobarxtx.github.io/RE102/images/geometricintro.gif "geometricintro")
 
 # In this workshop you will ... #
 
@@ -37,4 +37,4 @@ title: Intro
 * Manual Debugging - Stepping through the program to navigate to your goals
 
 
-[Next -> Section 1](https://securedorg.github.io/RE102/section1)
+[Next -> Section 1](https://nobarxtx.github.io/RE102/section1)

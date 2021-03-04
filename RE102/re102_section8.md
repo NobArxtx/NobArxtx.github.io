@@ -3,11 +3,11 @@ layout: default
 permalink: /RE102/section8/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 8: Conclusion #
 
-![alt text](https://securedorg.github.io/RE102/images/typing.gif "intro")
+![alt text](https://nobarxtx.github.io/RE102/images/typing.gif "intro")
 
 This concludes workshop RE102. I hope you enjoyed the levels of obfuscation and evasion. Here is a summary of what the malware’s packer does.
 
@@ -17,8 +17,8 @@ This concludes workshop RE102. I hope you enjoyed the levels of obfuscation and 
 
 The purpose of this workshop was to get you familiar with Anti Reverse Engineering, Encryption, VM Evasion and Packing techniques. As you saw this malware's packer had multiple layers of shellcode and tricks to throw off a reverse engineer. But by breaking things down step by step, you were able to work your way through each challenge.
 
-![alt text](https://securedorg.github.io/RE102/images/Section8_Conclusion.png "Section8_Conclusion")
+![alt text](https://nobarxtx.github.io/RE102/images/Section8_Conclusion.png "Section8_Conclusion")
 
 Special thanks to Ashkan.
 
-[Section 7 <- Back](https://securedorg.github.io/RE102/section7)
+[Section 7 <- Back](https://nobarxtx.github.io/RE102/section7)

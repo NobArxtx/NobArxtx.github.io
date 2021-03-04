@@ -4,7 +4,7 @@ permalink: /flareon4/challenge3/
 title: Challenge 3 greek_to_me.exe
 ---
 
-[Go Back to All Challenges](https://securedorg.github.io/flareon4)
+[Go Back to All Challenges](https://nobarxtx.github.io/flareon4)
 
 # Challenge 3: greek_to_me.exe #
 
@@ -14,7 +14,7 @@ Remember to verify that it's an windows executable and see what is does when you
 
 When you open the binary in a disassembler you will see this kind of structure:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch3_diagram.png "diagram")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch3_diagram.png "diagram")
 
 The executable will start up a listening socket on port 2222 and waits to recieve data in a small buffer. That buffer is transfered to a low byte register (i.e. al, bl, cl, dl). This means it's one ascii character ranging from 0 to 255 ordinal.
 
@@ -25,7 +25,7 @@ The hint here is the value tested against 0xFB5E. There is a function that proce
 ## First loop ##
 
 The first loop preps the answer array.
-![alt text](https://securedorg.github.io/flareon4/images/ch3_loop.png "first loop")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch3_loop.png "first loop")
 
 In python it looks like this:
 ```
@@ -38,7 +38,7 @@ for i in range(size):
 
 ## Main algorithm ##
 The 4011E6 will then take the answer array in reverse and do some bit shifting while chaining addition based on 2 bytes because of the usage of ax and cx. This value will eventually equal to 0xFB5E. 
-![alt text](https://securedorg.github.io/flareon4/images/ch3_aglo.png "algorithm")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch3_aglo.png "algorithm")
 
 Once the answer array runs through the algorithm, and passes the check against 0xFB5E, it will jump to the beginning of the newly modified answer array. This will end up being assembly instructions. If you are making a simple python script, you can use capstone to simply disassemble the new bytes. However, you can always just perform normal debugging.
 
@@ -98,4 +98,4 @@ for char in range(0, 255):
                                           insn.op_str, c))
 ```
 
-[Challenge 2 <- Back](https://securedorg.github.io/flareon4/challenge2) | [Next -> Challenge 4](https://securedorg.github.io/flareon4/challenge4)
+[Challenge 2 <- Back](https://nobarxtx.github.io/flareon4/challenge2) | [Next -> Challenge 4](https://nobarxtx.github.io/flareon4/challenge4)

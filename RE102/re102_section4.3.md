@@ -3,7 +3,7 @@ layout: default
 permalink: /RE102/section4.3/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 4.3: Convert the Shellcode Into an Exe #
 
@@ -49,4 +49,4 @@ golink /ni /entry Start decrypted_shellcode.obj
 
 Finally, open the decrypted_shellcode.exe into IDA for Section 5.
 
-[Section 4.2 <- Back](https://securedorg.github.io/RE102/section4.2) | [Next -> Section 5](https://securedorg.github.io/RE102/section5)
+[Section 4.2 <- Back](https://nobarxtx.github.io/RE102/section4.2) | [Next -> Section 5](https://nobarxtx.github.io/RE102/section5)

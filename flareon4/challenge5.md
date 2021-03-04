@@ -4,7 +4,7 @@ permalink: /flareon4/challenge5/
 title: Challenge 5 pewpewboat.exe
 ---
 
-[Go Back to All Challenges](https://securedorg.github.io/flareon4)
+[Go Back to All Challenges](https://nobarxtx.github.io/flareon4)
 
 # Challenge 5: pewpewboat.exe #
 
@@ -36,7 +36,7 @@ ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpr
 
 Here is some console output:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_run.png "run")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_run.png "run")
 
 ## Getting Started ##
 
@@ -54,7 +54,7 @@ You want to map out the execution flow as much as possible, because you will nee
 
 You should have mapped out something like this:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_diagram.png "diagram")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_diagram.png "diagram")
 
 ## Getting started with GDB ##
 
@@ -87,13 +87,13 @@ si
 ```
 x/20i $pc
 ```
-![alt text](https://securedorg.github.io/flareon4/images/ch5_gdb.png "gdb")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_gdb.png "gdb")
 
 **Display Registers**
 ```
 info registers
 ```
-![alt text](https://securedorg.github.io/flareon4/images/ch5_registers.png "registers")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_registers.png "registers")
 
 **Display 20 Hex Values**
 ```
@@ -110,17 +110,17 @@ Each pewpew map is decoded with a seed value in function 40304F. The initial see
 
 From the start function:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_decode.png "decode")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_decode.png "decode")
 
 Inside the decode function 40304F:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_innerdecode.png "inner decode")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_innerdecode.png "inner decode")
 
 ## Useless Function ##
 
 If you saw this ouput call for **NotMD5Hash** you really don't need it. You can just simply patch the usage of it.
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_patch.png "patch")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_patch.png "patch")
 
 Patch the binary by changing 0x74 to 0x75 which will change JZ to JNZ:
 ```
@@ -132,11 +132,11 @@ Patch the binary by changing 0x74 to 0x75 which will change JZ to JNZ:
 ## Breaking Down the Pewpew Map Data ##
 
 The first 8 bytes are the coordinates for the battelships while the next 8 bytes is the initial seed.
-![alt text](https://securedorg.github.io/flareon4/images/ch5_parsedmap.png "parsed map")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_parsedmap.png "parsed map")
 
 ### Coordinates ###
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_andcoords.png "coords")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_andcoords.png "coords")
 
 You can see where the coordinates are referenced yourself by setting a beak point at `4039E9`
 ```
@@ -228,7 +228,7 @@ You will begin to notice that $rax+0x8 is the coordinate you entered while $rbp-
 
 Here is where the seed manipulation is happenning:
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_seedmanip.png "seed manip")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_seedmanip.png "seed manip")
 
 It takes the coordinates and uses this to update the initial seed. If you were to input **B4**: B being x and 4 being y. 
 
@@ -249,7 +249,7 @@ You will need to shuffle around the letters and use ROT13 to decode them.
 OHGJURERVFGUREHZ -> BUTWHEREISTHERUM
 ```
 
-![alt text](https://securedorg.github.io/flareon4/images/ch5_finale.png "finale")
+![alt text](https://nobarxtx.github.io/flareon4/images/ch5_finale.png "finale")
 
 Here is the code used to decode the pewpew map data:
 
@@ -312,4 +312,4 @@ with open("referenced_data.bin", "rb") as fp:
         open("output.bin", "wb").write(dst)
 ```
 
-[Challenge 4 <- Back](https://securedorg.github.io/flareon4/challenge4) | [Next -> Challenge 6](https://securedorg.github.io/flareon4/challenge6)
+[Challenge 4 <- Back](https://nobarxtx.github.io/flareon4/challenge4) | [Next -> Challenge 6](https://nobarxtx.github.io/flareon4/challenge6)

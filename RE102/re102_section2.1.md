@@ -3,17 +3,17 @@ layout: default
 permalink: /RE102/section2.1/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 2.1: Information Gathering Results #
 
-![alt text](https://securedorg.github.io/RE102/images/Section2_virustotal.png "virustotal")
+![alt text](https://nobarxtx.github.io/RE102/images/Section2_virustotal.png "virustotal")
 
 I personally just start by looking up the hash on [VirusTotal](https://www.virustotal.com) because most of the triage information is already there. If it’s not on VirusTotal, there are tools in the VMs. You can get the same information by using CFF explorer.
 
 ## File Context and Delivery ##
 
-![alt text](https://securedorg.github.io/RE102/images/Section2_CFFexp.png "CFFexp")
+![alt text](https://nobarxtx.github.io/RE102/images/Section2_CFFexp.png "CFFexp")
 
 We don’t have a victim to tell us how this file was delivered. However you can guess the intent by looking at the original filename in the properties **InternalName** and **FileDescription**. As you can see it is posing as the **Anti-Virus Malwarebytes** software. One can only guess that the malware was pretending to be an Anti-Virus so that the victim will trust it. An IT admin might even overlook the process with the name mbam.exe because it will look legit at first glance.
 
@@ -41,7 +41,7 @@ Looking at the imported functions for `User32.dll` you can see there are many AP
 ## Strings Review ##
 Strings always provide a good starting point for clues. It may also reveal things that the PE info was not able to provide such as extra  loaded DLLs and API functions. Another hint is looking at junk strings. Junk strings potentially means it is either an image or extra binary data being reference by the sample.  It could potentially be an encoded/encrypted/compressed payload. (muhahaha)
 
-![alt text](https://securedorg.github.io/RE102/images/Section2_junkdata.png "junkinthetrunk")
+![alt text](https://nobarxtx.github.io/RE102/images/Section2_junkdata.png "junkinthetrunk")
 
 ## Web search ##
 A string web search is a last resort. I usually use this step to find reports already generated for this family of malware. Unfortunately there is ton of junk data, so we can assume this sample might be packed/encrypted somehow for now.
@@ -49,10 +49,10 @@ A string web search is a last resort. I usually use this step to find reports al
 ## Anti-Virus Vendors ##
 AV Vendors provide some insight into a sample besides just good or bad. There are also many heuristic and generic detections that might not be useful in telling you what the sample is going to do. Keywords like Trojan or GEN for Generic are not enough to tell you how bad it is. However the keyword Injector gives us a hint that it is doing some kind of code in memory manipulation. As we know from above, this malware has a bunch of junk code, so AV might not have enough binary features to make a definitive signature but still does well in telling you that it looks generally abnormal.
 
-![alt text](https://securedorg.github.io/RE102/images/Section2_AVnames.png "Section2_AVnames")
+![alt text](https://nobarxtx.github.io/RE102/images/Section2_AVnames.png "Section2_AVnames")
 
 ## VM Detonation & Network Information ##
-If you followed [RE101 Lab 1](https://securedorg.github.io/RE101/section4/) you will know how to do a simple VM detonation to collect the filesystem, process, registry and network information. You will notice that this sample does nothing really special in the VM. So we will need to investigate why.
+If you followed [RE101 Lab 1](https://nobarxtx.github.io/RE101/section4/) you will know how to do a simple VM detonation to collect the filesystem, process, registry and network information. You will notice that this sample does nothing really special in the VM. So we will need to investigate why.
 
 
-[Section 2 <- Back](https://securedorg.github.io/RE102/section2) | [Next -> Section 3](https://securedorg.github.io/RE102/section3)
+[Section 2 <- Back](https://nobarxtx.github.io/RE102/section2) | [Next -> Section 3](https://nobarxtx.github.io/RE102/section3)

@@ -3,11 +3,11 @@ layout: default
 permalink: /RE102/section5/
 title: Setup
 ---
-[Go Back to Reverse Engineering Malware 102](https://securedorg.github.io/RE102/)
+[Go Back to Reverse Engineering Malware 102](https://nobarxtx.github.io/RE102/)
 
 # Section 5: Evasion Techniques #
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_intro.gif "intro")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_intro.gif "intro")
 
 This section will focus on identifying various evasion techniques as well as working around them during the debugging phase. Now that you will be working with an new executable, you will need to create another road map.
 
@@ -17,7 +17,7 @@ You will notice that the shellcode is broken up into extraneous and unnecessary 
 
 Going forward, you should be viewing the disassembly in graph mode, as it makes it easier to understand  the control flow. Below is an example of the flow-chart mode of these jumps.
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_ControlFlowObfuscation.png "Section5_ControlFlowObfuscation")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_ControlFlowObfuscation.png "Section5_ControlFlowObfuscation")
 
 ## Where to Start? ##
 
@@ -29,11 +29,11 @@ The first function call `sub_404C1E` doesn’t look like something interesting, 
 
 Notice anything strange about the immediate values being placed onto the stack? These are actually strings. Breaking up strings and  pushing them onto the stack is a common of hiding strings from malware analysts. Go ahead right-click these numbers and convert it to a string (R).
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_FunkyStrings.png "Section5_FunkyStrings")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_FunkyStrings.png "Section5_FunkyStrings")
 
 They should look like this afterwards:
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_PostStrings.png "Section5_PostStrings")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_PostStrings.png "Section5_PostStrings")
 
 ## Dynamic Library Loading ##
 
@@ -58,7 +58,7 @@ mov     eax, [eax] ; get the next entry
 mov     eax, [eax+18h] ; get Kernel32
 ```
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_PEB.gif "Section5_PEB")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_PEB.gif "Section5_PEB")
 
 The second instruction `mov eax, [eax+0Ch]` gets the address of the PEB Loader Data from the [PEB](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813706%28v=vs.85%29.aspx) struct. The [PEB_LDR_DATA](https://msdn.microsoft.com/en-us/library/windows/desktop/aa813708(v=vs.85).aspx) contains the struct for the InMemoryOrderModuleList which is where it gets the pointer for Kernel32. **Note:** there are many great shellcode resources available that explain this technique. I just want you to recognize the instruction `fs:[0x30]`.
 
@@ -79,7 +79,7 @@ Save these functions `sub_402B1C` and `sub_405421` for debugging later. Also inc
 
 Go to the next function `sub_4014AA` which is a wrapper for function `sub_401D36`. Again, this function is using an anti-analysis technique of pushing a string one by one onto the stack. Can you guess what this function is doing?
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_NameCheck.png "Section5_NameCheck")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_NameCheck.png "Section5_NameCheck")
 
 The strings are:
 
@@ -89,14 +89,14 @@ The strings are:
 
 It seems the malware author wanted to detect if this executable contained strings related to malware analysis. You will need to debug this function to see which string it’s comparing these values. You will want to avoid this function because you need to get around the anti-analysis detection. Remember that functions return 0 or 1 in `eax` depending on the success or failure. You want this function to fail or return 1 because you want to get around these traps. Below the instruction `cmp eax, 1` and `jz loc_405272` is where the comparison to the return value occurs. During debugging, you would want to force the jump by changing the EFlags.
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_checkname.png "Section5_checkname")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_checkname.png "Section5_checkname")
 
 ## Time to Start Debugging ##
 
 After `jz loc_405272` there is a call to [esp+1Ch] this is actually calling a Windows API call that was loaded there by the loaded library function `sub_402B1C`. It would be tedious to go through those locations by hand, so let’s start debugging.
 
-![alt text](https://securedorg.github.io/RE102/images/Section5_startdebugging.png "Section5_startdebugging")
+![alt text](https://nobarxtx.github.io/RE102/images/Section5_startdebugging.png "Section5_startdebugging")
 
 The next page will go over debugging the decrypted_shellcode.exe with x32dbg.
 
-[Section 4.3 <- Back](https://securedorg.github.io/RE102/section4.3) | [Next -> Section 5.1](https://securedorg.github.io/RE102/section5.1)
+[Section 4.3 <- Back](https://nobarxtx.github.io/RE102/section4.3) | [Next -> Section 5.1](https://nobarxtx.github.io/RE102/section5.1)
